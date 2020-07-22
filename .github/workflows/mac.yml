@@ -15,6 +15,8 @@ jobs:
       run: git submodule update --init --recursive
     - name: Install Dependencies
       run: brew install flex bison
+    - name: Modify PATH
+      run: export PATH="/usr/local/opt/flex/bin:/usr/local/opt/bison/bin:$PATH"
     - name: Print Flex Bison Versions
       run: flex --version && bison --version
     - name: Make Build Directory
@@ -22,6 +24,6 @@ jobs:
     - name: Generate CMake Project
       run: (cd build && cmake ../ -G Xcode)
     - name: Build Project
-      run: (cd build && ninja)
+      run: cmake --build build
     - name: Run Unit-Tests
       run: (cd build && ./actions_playground)

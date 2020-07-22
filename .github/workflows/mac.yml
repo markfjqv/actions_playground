@@ -1,4 +1,4 @@
-name: Windows
+name: Mac
 
 on:
   push:
@@ -8,16 +8,19 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: choco install winflexbison3
-    - name: Check in Path
-      run: win_flex --version
+      run: brew install flex bison
+    - name: Check Flex Path
+      run: flex --version
+    - name: Check Bison Path
+      run: flex --version
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project
       run: (cd build && cmake ..)
     - name: Build Project
       run: cmake --build build
+    - name: Run Unit-Tests

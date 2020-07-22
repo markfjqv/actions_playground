@@ -15,10 +15,12 @@ jobs:
       run: git submodule update --init --recursive
     - name: Install Dependencies
       run: brew install flex bison
+    - name: Print Flex Bison Versions
+      run: flex --version && bison --version
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project
-      run: (cd build && cmake ../ -G Ninja)
+      run: (cd build && cmake ../ -G Xcode)
     - name: Build Project
       run: (cd build && ninja)
     - name: Run Unit-Tests

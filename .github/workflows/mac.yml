@@ -16,7 +16,7 @@ jobs:
     - name: Check Flex Path
       run: flex --version
     - name: Check Bison Path
-      run: flex --version
+      run: bison --version
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project

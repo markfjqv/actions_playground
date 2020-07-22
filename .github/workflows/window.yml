@@ -1,4 +1,4 @@
-name: Linux
+name: Windows
 
 on:
   push:
@@ -11,6 +11,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: choco install winflexbison3
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project

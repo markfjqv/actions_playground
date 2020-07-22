@@ -13,10 +13,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: brew install flex bison
-    - name: Check Flex Path
-      run: flex --version
-    - name: Check Bison Path
-      run: bison --version
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project

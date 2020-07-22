@@ -16,7 +16,7 @@ jobs:
     - name: Make Build Directory
       run: mkdir -p build
     - name: Generate CMake Project
-      run: (cd build && cmake ../ -G Ninja)
+      run: (cd build && cmake ..)
     - name: Build Project
       run: (cd build && ninja)
     - name: Run Unit-Tests
